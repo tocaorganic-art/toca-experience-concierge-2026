@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { useLanguage } from "@/hooks/useLanguage";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
 interface GalleryImage {
   src: string;
@@ -9,41 +9,35 @@ interface GalleryImage {
 
 const SAMPLE_IMAGES: GalleryImage[] = [
   {
-    src: "/manus-storage/toca_experience_lifestyle_be89a369.png",
-    alt: "Toca Experience Lifestyle",
+    src: "https://images.unsplash.com/photo-1540541338287-41700207dee6?auto=format&fit=crop&q=80&w=1200",
+    alt: "Luxury Resort",
   },
   {
-    src: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&h=600&fit=crop",
-    alt: "Luxury Interior",
+    src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800",
+    alt: "Infinity Pool",
   },
   {
-    src: "https://images.unsplash.com/photo-1618773421522-1e1a3c3e3b1f?w=800&h=600&fit=crop",
-    alt: "Pool Area",
+    src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800",
+    alt: "Luxury Villa",
   },
   {
-    src: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=600&fit=crop",
-    alt: "Beach View",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop",
+    src: "https://images.unsplash.com/photo-1582719471384-894fbb16e074?auto=format&fit=crop&q=80&w=800",
     alt: "Bedroom",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800",
+    alt: "Private Jet",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800",
+    alt: "Dining Experience",
   },
 ];
 
 export function Gallery() {
-  const { t } = useLanguage();
+  const { t } = useTranslation();
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [loadedImages, setLoadedImages] = useState<Set<number>>(new Set());
-  const [errorImages, setErrorImages] = useState<Set<number>>(new Set());
-
-  const handleImageLoad = (index: number) => {
-    setLoadedImages((prev) => new Set(prev).add(index));
-  };
-
-  const handleImageError = (index: number) => {
-    setErrorImages((prev) => new Set(prev).add(index));
-  };
 
   const openLightbox = (index: number) => {
     setCurrentIndex(index);
@@ -78,62 +72,34 @@ export function Gallery() {
   }, [lightboxOpen]);
 
   return (
-    <section id="gallery" className="py-8 md:py-20 px-4 bg-black">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-12 fade-in-up">
-          <p className="section-label">{t("gallery.label")}</p>
+    <section id="gallery" className="py-24 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-20">
+          <span className="section-label">{t("gallery.title")}</span>
           <h2 className="section-title">{t("gallery.title")}</h2>
-          <p className="text-gray-400 max-w-2xl mt-4">
-            {t("gallery.description")}
+          <p className="text-xl text-gray-600 max-w-2xl leading-relaxed">
+            {t("gallery.subtitle")}
           </p>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {SAMPLE_IMAGES.map((image, index) => (
             <div
               key={index}
-              className={`relative overflow-hidden rounded cursor-pointer group ${
-                index === 0 ? "md:col-span-2 md:row-span-2" : ""
-              } aspect-square md:aspect-auto`}
+              className={`relative overflow-hidden rounded-3xl cursor-pointer group ${
+                index === 0 ? "md:col-span-2 md:row-span-2 aspect-[4/3] md:aspect-auto" : "aspect-square"
+              }`}
               onClick={() => openLightbox(index)}
             >
-              {/* Shimmer Loading */}
-              {!loadedImages.has(index) && !errorImages.has(index) && (
-                <div className="absolute inset-0 shimmer z-10" />
-              )}
-
-              {/* Image */}
-              {!errorImages.has(index) && (
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  onLoad={() => handleImageLoad(index)}
-                  onError={() => handleImageError(index)}
-                  className={`w-full h-full object-cover transition-all duration-300 group-hover:scale-110 ${
-                    loadedImages.has(index) ? "opacity-100" : "opacity-0"
-                  }`}
-                />
-              )}
-
-              {/* Error State */}
-              {errorImages.has(index) && (
-                <div className="w-full h-full bg-[rgb(22_22_22)] flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-2xl mb-2">📷</div>
-                    <p className="text-xs text-gray-500 uppercase tracking-wider">
-                      {t("gallery.error")}
-                    </p>
-                  </div>
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
+                  <Maximize2 size={24} />
                 </div>
-              )}
-
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                <span className="text-xs uppercase tracking-widest text-white font-semibold">
-                  {t("gallery.zoom")}
-                </span>
               </div>
             </div>
           ))}
@@ -143,53 +109,40 @@ export function Gallery() {
       {/* Lightbox */}
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 md:p-10"
           onClick={closeLightbox}
         >
+          <button
+            onClick={closeLightbox}
+            className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-[110]"
+          >
+            <X size={40} />
+          </button>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); prevImage(); }}
+            className="absolute left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors hidden md:block"
+          >
+            <ChevronLeft size={60} />
+          </button>
+
           <div
-            className="relative max-w-4xl w-full"
+            className="relative max-w-6xl w-full h-full flex items-center justify-center"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
-            <button
-              onClick={closeLightbox}
-              className="absolute -top-10 right-0 text-[rgb(201_168_76)] hover:text-[rgb(232_208_138)] transition-colors"
-            >
-              <X size={32} />
-            </button>
-
-            {/* Image */}
-            <div className="relative bg-[rgb(22_22_22)] rounded overflow-hidden">
-              {!loadedImages.has(currentIndex) && (
-                <div className="absolute inset-0 shimmer" />
-              )}
-              <img
-                src={SAMPLE_IMAGES[currentIndex].src}
-                alt={SAMPLE_IMAGES[currentIndex].alt}
-                onLoad={() => handleImageLoad(currentIndex)}
-                className="w-full h-auto max-h-[80vh] object-contain"
-              />
-            </div>
-
-            {/* Navigation */}
-            <div className="flex items-center justify-between mt-6">
-              <button
-                onClick={prevImage}
-                className="p-2 text-[rgb(201_168_76)] hover:text-[rgb(232_208_138)] transition-colors"
-              >
-                <ChevronLeft size={32} />
-              </button>
-              <span className="text-sm text-gray-500 uppercase tracking-wider">
-                {currentIndex + 1} / {SAMPLE_IMAGES.length}
-              </span>
-              <button
-                onClick={nextImage}
-                className="p-2 text-[rgb(201_168_76)] hover:text-[rgb(232_208_138)] transition-colors"
-              >
-                <ChevronRight size={32} />
-              </button>
-            </div>
+            <img
+              src={SAMPLE_IMAGES[currentIndex].src}
+              alt={SAMPLE_IMAGES[currentIndex].alt}
+              className="max-w-full max-h-full object-contain rounded-xl"
+            />
           </div>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); nextImage(); }}
+            className="absolute right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors hidden md:block"
+          >
+            <ChevronRight size={60} />
+          </button>
         </div>
       )}
     </section>

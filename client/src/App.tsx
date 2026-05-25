@@ -5,15 +5,11 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
-import { useState } from "react";
-import { Language } from "@shared/content";
 
-function Router({ language, onLanguageChange }: { language: Language; onLanguageChange: (lang: Language) => void }) {
+function Router() {
   return (
     <Switch>
-      <Route path={"/"}>
-        <Home language={language} onLanguageChange={onLanguageChange} />
-      </Route>
+      <Route path={"/"} component={Home} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -21,19 +17,12 @@ function Router({ language, onLanguageChange }: { language: Language; onLanguage
 }
 
 function App() {
-  const [language, setLanguage] = useState<Language>("pt");
-
-  const handleLanguageChange = (lang: Language) => {
-    setLanguage(lang);
-    localStorage.setItem("toca-language", lang);
-  };
-
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <Router language={language} onLanguageChange={handleLanguageChange} />
+          <Router />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

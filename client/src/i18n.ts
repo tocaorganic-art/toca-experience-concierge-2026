@@ -5,403 +5,361 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
   pt: {
     translation: {
+      // 01. HERO
+      'hero.tagline': 'Curadoria de experiências para quem valoriza cada momento.',
+      'hero.title': 'Enquanto você foca no que importa, a <span class="text-accent">Toca cuida do resto</span>.',
+      'hero.subtitle': 'Concierge e curadoria de estilo de vida para quem valoriza cada hora do dia. Do jantar perfeito à viagem dos sonhos — nós resolvemos.',
+      'hero.cta': 'Agendar uma conversa gratuita →',
+
+      // 02. PARA QUEM É
+      'personas.label': 'Para quem é',
+      'personas.title': 'Soluções sob medida para rotinas extraordinárias',
+      'personas.subtitle': 'Entendemos que seu tempo é o seu recurso mais valioso. Por isso, criamos serviços que se moldam ao seu estilo de vida.',
+      'persona1.name': 'Executivos & Empresários',
+      'persona1.desc': 'Gestão completa de agenda pessoal, viagens corporativas e eventos de networking para que você mantenha o foco no crescimento dos seus negócios.',
+      'persona2.name': 'Famílias de Alta Renda',
+      'persona2.desc': 'Planejamento de férias inesquecíveis, gestão de propriedades e curadoria de lazer educativo para os filhos, com total segurança e privacidade.',
+      'persona3.name': 'Nômades Digitais de Luxo',
+      'persona3.desc': 'Logística impecável em qualquer lugar do mundo, desde a escolha da villa ideal até a conexão com as comunidades locais mais exclusivas.',
+
+      // 03. O QUE OFERECEMOS
+      'services.label': 'O que cuidamos para você',
+      'services.title': 'Viva mais e melhor, sem as preocupações do dia a dia',
+      'services.subtitle': 'Você não precisa escolher entre viver bem e viver ocupado. A Toca cuida de cada detalhe para que sua experiência seja sempre impecável.',
+      'service1.name': 'Curadoria de Viagens',
+      'service1.desc': 'Acesso a destinos exclusivos, roteiros personalizados e as melhores villas do mundo.',
+      'service1.benefit': 'Experiências que dinheiro sozinho não compra.',
+      'service2.name': 'Gestão de Lifestyle',
+      'service2.desc': 'Reservas em restaurantes com lista de espera, acesso a eventos VIP e personal shopper.',
+      'service2.benefit': 'Sua vida social no mais alto nível, sem esforço.',
+      'service3.name': 'Logística e Transporte',
+      'service3.desc': 'Frota privada, aviação executiva e motoristas bilíngues à sua disposição 24/7.',
+      'service3.benefit': 'Chegue onde precisa com conforto, segurança e pontualidade.',
+      'service4.name': 'Eventos Exclusivos',
+      'service4.desc': 'Organização completa de celebrações privadas, jantares com chefs renomados e festas temáticas.',
+      'service4.benefit': 'Momentos memoráveis, planejados nos mínimos detalhes.',
+
+      // 04. NOSSOS PLANOS
+      'plans.label': 'Investimento',
+      'plans.title': 'Escolha o nível de cuidado que faz sentido para o seu momento',
+      'plan1.name': 'Essencial',
+      'plan1.price': 'Sob consulta',
+      'plan1.desc': 'Ideal para quem busca suporte pontual em viagens e lazer.',
+      'plan1.feat1': 'Curadoria de 1 viagem/ano',
+      'plan1.feat2': 'Reservas de restaurantes VIP',
+      'plan1.feat3': 'Suporte via WhatsApp 8/5',
+      'plan2.name': 'Premium',
+      'plan2.price': 'Recomendado',
+      'plan2.desc': 'Gestão ativa do seu estilo de vida e necessidades recorrentes.',
+      'plan2.feat1': 'Viagens ilimitadas',
+      'plan2.feat2': 'Personal Shopper & Gift Finder',
+      'plan2.feat3': 'Suporte dedicado 24/7',
+      'plan3.name': 'Exclusive',
+      'plan3.price': 'Alta Performance',
+      'plan3.desc': 'O auge da personalização com um concierge dedicado exclusivo.',
+      'plan3.feat1': 'Concierge residente (opcional)',
+      'plan3.feat2': 'Acesso a clubes ultra-exclusivos',
+      'plan3.feat3': 'Prioridade máxima em todas as solicitações',
+      'plans.cta': 'Quero este plano',
+
+      // 05. MINI CASES
+      'cases.label': 'Situações Reais',
+      'cases.title': 'Como transformamos o comum em extraordinário',
+      'case1.title': 'O Jantar Impossível',
+      'case1.desc': 'Um cliente precisava de uma mesa para 10 pessoas em um restaurante com 6 meses de espera em Paris. Resolvemos em 4 horas através de nossa rede de parceiros locais.',
+      'case2.title': 'Aniversário nas Maldivas',
+      'case2.desc': 'Organizamos uma festa surpresa em uma ilha privada, incluindo o transporte de um chef específico e decoração temática, tudo em menos de 15 dias.',
+      'case3.title': 'Logística de Emergência',
+      'case3.desc': 'Coordenamos a evacuação médica privada e o retorno seguro de uma família durante uma crise inesperada em um destino remoto.',
+
+      // 06. CREDIBILIDADE
+      'stats.clients': 'Clientes Atendidos',
+      'stats.experience': 'Anos de Experiência',
+      'stats.countries': 'Países Atendidos',
+      'stats.satisfaction': 'Satisfação',
+      'reviews.title': 'O que nossos clientes dizem',
+      'reviews.subtitle': 'A confiança de quem vive o extraordinário todos os dias.',
+
+      // 07. GALERIA
+      'gallery.title': 'Galeria de Experiências',
+      'gallery.subtitle': 'Um vislumbre dos momentos que criamos para nossos membros.',
+
+      // 08. INVESTIMENTO & CONDIÇÕES
+      'investment.payment': 'Formas de Pagamento',
+      'investment.methods': 'Pix, Cartão de Crédito (até 12x), Transferência Bancária e Pagamentos Internacionais.',
+      'investment.validity': 'Proposta válida por 15 dias a partir da data de emissão.',
+      'investment.refund': 'Política de Cancelamento: Reembolso integral até 7 dias após a contratação. Após este período, condições sob medida conforme o plano.',
+
+      // 09. COMO FUNCIONA
+      'workflow.label': 'Como Funciona',
+      'workflow.title': 'Seu caminho para uma vida sem preocupações',
+      'step1.title': 'Conversa Inicial',
+      'step1.desc': 'Entendemos seu perfil, necessidades e o que você mais valoriza.',
+      'step2.title': 'Briefing Detalhado',
+      'step2.desc': 'Mapeamos suas preferências, desde alergias alimentares até marcas favoritas.',
+      'step3.title': 'Proposta sob Medida',
+      'step3.desc': 'Apresentamos o plano e as estratégias ideais para o seu estilo de vida.',
+      'step4.title': 'Contratação',
+      'step4.desc': 'Formalizamos a parceria e você recebe seu concierge dedicado.',
+      'step5.title': 'Execução Impecável',
+      'step5.desc': 'Nós cuidamos de tudo. Você apenas desfruta do resultado.',
+
+      // 10. FALE CONOSCO
+      'footer.cta.title': 'Pronto para viver com mais leveza?',
+      'footer.cta.subtitle': 'Fale com a nossa equipe hoje e descubra como podemos elevar o seu estilo de vida.',
+      'footer.sla': 'Respondemos em até 2 horas em dias úteis.',
+      'footer.contact.title': 'Canais de Atendimento',
+      'footer.hours': 'Horário: 24/7 para membros Exclusive | 09h às 18h para suporte geral.',
+      'footer.signature.name': 'Responsável Toca Experience',
+      'footer.signature.role': 'Diretor de Relacionamento',
+      'footer.copyright': '© 2026 Toca Experience. Todos os direitos reservados.',
+      
       // Navigation
-      'nav.home': 'INÍCIO',
-      'nav.gallery': 'GALERIA',
-      'nav.videos': 'VÍDEOS',
-      'nav.property': 'PROPRIEDADE',
-      'nav.map': 'MAPA',
-      'nav.investment': 'INVESTIMENTO',
-      'nav.book': 'Reservar',
-      'nav.language': 'PT',
-
-      // Hero
-      'hero.badge': 'EXPERIÊNCIA EXCLUSIVA',
-      'hero.title': 'Concierge de <span style="font-style: italic;">Estilo de Vida</span>',
-      'hero.subtitle': 'Curadoria de experiências luxuosas, personalização total e equipes dedicadas para sua estadia perfeita.',
-      'hero.cta1': '💬 Contatar via WhatsApp',
-      'hero.cta2': 'Saiba Mais',
-
-      // Stats
-      'stats.clients': 'Clientes Satisfeitos',
-      'stats.reservations': 'Reservas Realizadas',
-      'stats.satisfaction': 'Taxa de Satisfação',
-
-      // Gallery
-      'gallery.title': 'Galeria de Fotos',
-      'gallery.subtitle': 'Tour completo pela casa, áreas externas, piscina, jacuzzi e toda a estrutura para que seu grupo desfrute com privacidade e conforto total.',
-      'gallery.expand': 'AMPLIAR',
-
-      // Videos
-      'videos.title': 'Vídeos da Propriedade',
-      'videos.subtitle': 'Veja em detalhes cada ambiente e a atmosfera exclusiva desta casa de alto padrão.',
-
-      // Map
-      'map.title': 'Pontos de Interesse Próximos',
-      'map.subtitle': 'Descubra praias, bares, baladas e restaurantes em um raio de 10 km da propriedade.',
-      'map.filter.all': 'Todos',
-      'map.filter.beaches': '🏖️Praias',
-      'map.filter.bars': '🍹Bares',
-      'map.filter.clubs': '🎉Baladas',
-      'map.filter.restaurants': '🍽️Restaurantes',
-      'map.filter.airport': '✈️Aeroporto',
-
-      // Period
-      'period.title': 'Feriado de Consciência Negra 2025',
-      'period.subtitle': 'Uma experiência exclusiva durante o feriado prolongado de Consciência Negra com 5 noites de hospedagem.',
-      'period.checkin': 'Check-in',
-      'period.checkout': 'Check-out',
-      'period.duration': 'Duração',
-      'period.guests': 'Máximo de hóspedes',
-
-      // Concierge Services
-      'concierge.title': 'Serviços de Concierge de Estilo de Vida',
-      'concierge.subtitle': 'Experiência sob medida com equipes dedicadas, curadoria de atividades e logística completa para sua estadia perfeita.',
-      'concierge.curation': 'Curadoria Exclusiva',
-      'concierge.teams': 'Equipes Dedicadas',
-      'concierge.logistics': 'Logística Completa',
-      'concierge.events': 'Eventos Sob Medida',
-      'concierge.why': 'Por Que Escolher Nosso Concierge?',
-
-      // Investment
-      'investment.title': 'Pacote Feriado Consciência Negra',
-      'investment.subtitle': 'Experiência completa para 15 pessoas com 5 noites de hospedagem, equipe dedicada e atividades curadas.',
-      'investment.total': 'Valor Total do Pacote',
-      'investment.distribution': 'Distribuição do Investimento',
-
-      // FAQ
-      'faq.title': 'Perguntas Frequentes',
-      'faq.subtitle': 'Tire suas dúvidas sobre o serviço de concierge Toca Experience',
-      'faq.q1': 'O que está incluído no serviço de concierge?',
-      'faq.a1': 'Nosso serviço inclui curadoria de experiências, equipes dedicadas 24/7, logística completa, transporte privado, coordenação de atividades e suporte total durante sua estadia.',
-      'faq.q2': 'Como funciona o processo de reserva?',
-      'faq.a2': 'Você pode preencher nosso formulário de pré-reserva, entrar em contato via WhatsApp ou falar com nossa equipe de concierge. Analisamos suas preferências e criamos uma experiência personalizada.',
-      'faq.q3': 'Quais comodidades estão disponíveis na propriedade?',
-      'faq.a3': 'A propriedade oferece piscina, jacuzzi, área gourmet, sala de cinema, academia, spa e áreas de convivência espaçosas para até 15 hóspedes.',
-      'faq.q4': 'É possível fazer check-in antecipado ou check-out tardio?',
-      'faq.a4': 'Sim! Oferecemos flexibilidade de horários conforme disponibilidade. Entre em contato conosco para solicitar essa possibilidade.',
-      'faq.q5': 'Como funciona o suporte durante a estadia?',
-      'faq.a5': 'Nossa equipe está disponível 24/7 para qualquer necessidade. Você pode entrar em contato via WhatsApp, telefone ou pessoalmente com nossos profissionais na propriedade.',
-      'faq.q6': 'Vocês oferecem serviços de transfer e passeios?',
-      'faq.a6': 'Sim! Oferecemos motorista privado, transfers para aeroporto e passeios personalizados conforme suas preferências.',
-      'faq.q7': 'Qual é a política de cancelamento?',
-      'faq.a7': 'Oferecemos diferentes políticas de cancelamento conforme o tipo de reserva. Entre em contato para conhecer as opções disponíveis.',
-      'faq.q8': 'Como entro em contato com a equipe de concierge?',
-      'faq.a8': 'Você pode nos contatar via WhatsApp, telefone, e-mail ou através do formulário de contato no site. Respondemos em até 2 horas.',
-      'faq.contact': 'Ainda tem dúvidas?',
-
-      // Pre-booking Form
-      'prebooking.title': 'Pré-Reserva',
-      'prebooking.subtitle': 'Preencha o formulário abaixo e nossa equipe entrará em contato para confirmar sua experiência',
-      'prebooking.name': 'Nome Completo',
-      'prebooking.email': 'E-mail',
-      'prebooking.phone': 'Telefone/WhatsApp',
-      'prebooking.checkin': 'Check-in',
-      'prebooking.checkout': 'Check-out',
-      'prebooking.adults': 'Número de Adultos',
-      'prebooking.children': 'Número de Crianças',
-      'prebooking.message': 'Mensagem (opcional)',
-      'prebooking.nights': 'Noites',
-      'prebooking.submit': 'Enviar Pré-Reserva',
-      'prebooking.loading': 'Enviando...',
-      'prebooking.success': 'Pré-reserva enviada com sucesso!',
-      'prebooking.error': 'Erro ao enviar pré-reserva. Tente novamente.',
-
-      // Reviews
-      'reviews.title': 'Avaliações de Clientes',
-      'reviews.subtitle': 'Confira o que nossos clientes dizem sobre suas experiências',
-      'reviews.form.name': 'Seu Nome',
-      'reviews.form.stars': 'Avaliação',
-      'reviews.form.comment': 'Seu Comentário',
-      'reviews.form.stayMonth': 'Mês da Estadia',
-      'reviews.form.submit': 'Enviar Avaliação',
-      'reviews.average': 'Avaliação Média',
-      'reviews.leaveReview': 'Deixe sua Avaliação',
-      'reviews.disclaimer': 'Os depoimentos exibidos são de clientes reais verificados pela equipe Toca Experience. Exemplos ilustrativos são identificados como tal.',
-
-      // Chat
-      'chat.welcome': 'Olá! 👋 Bem-vindo à Toca Experience. Como podemos ajudá-lo?',
-
-      // Buttons
-      'buttons.whatsapp': '💬 Contatar via WhatsApp',
-      'buttons.learnMore': 'Saiba Mais',
-      'buttons.chooseItinerary': 'Escolher Roteiro',
-      'buttons.customItinerary': 'Criar Roteiro Personalizado',
-      'buttons.submit': 'Enviar Formulário',
-
-      // Property
-      'property.label': 'PROPRIEDADE',
-      'property.title': 'Casa de Luxo em Florianópolis',
-      'property.guests': 'Hóspedes',
-      'property.bedrooms': 'Suítes',
-    },
+      'nav.home': 'Início',
+      'nav.services': 'Serviços',
+      'nav.plans': 'Planos',
+      'nav.cases': 'Casos',
+      'nav.contact': 'Contato',
+    }
   },
   es: {
     translation: {
+      // 01. HERO
+      'hero.tagline': 'Curaduría de experiencias para quienes valoran cada momento.',
+      'hero.title': 'Mientras te enfocas en lo que importa, <span class="text-accent">Toca se encarga del resto</span>.',
+      'hero.subtitle': 'Conserjería y curaduría de estilo de vida para quienes valoran cada hora del día. Desde la cena perfecta hasta el viaje de sus sueños, nosotros lo resolvemos.',
+      'hero.cta': 'Agendar una charla gratuita →',
+
+      // 02. PARA QUIÉN ES
+      'personas.label': 'Para quién es',
+      'personas.title': 'Soluciones a medida para rutinas extraordinarias',
+      'personas.subtitle': 'Entendemos que su tiempo es su recurso más valioso. Por eso, creamos servicios que se adaptan a su estilo de vida.',
+      'persona1.name': 'Ejecutivos y Empresarios',
+      'persona1.desc': 'Gestión completa de agenda personal, viajes corporativos y eventos de networking para que mantenga el enfoque en el crecimiento de sus negocios.',
+      'persona2.name': 'Familias de Alto Nivel',
+      'persona2.desc': 'Planificación de vacaciones inolvidables, gestión de propiedades y curaduría de ocio educativo para los hijos, con total seguridad y privacidad.',
+      'persona3.name': 'Nómadas Digitales de Lujo',
+      'persona3.desc': 'Logística impecable en cualquier lugar del mundo, desde la elección de la villa ideal hasta la conexión con las comunidades locales más exclusivas.',
+
+      // 03. QUÉ OFRECEMOS
+      'services.label': 'Lo que cuidamos para usted',
+      'services.title': 'Viva más y mejor, sin las preocupaciones del día a día',
+      'services.subtitle': 'No tiene que elegir entre vivir bien y vivir ocupado. Toca cuida cada detalle para que su experiencia sea siempre impecable.',
+      'service1.name': 'Curaduría de Viajes',
+      'service1.desc': 'Acceso a destinos exclusivos, itinerarios personalizados y las mejores villas del mundo.',
+      'service1.benefit': 'Experiencias que el dinero solo no puede comprar.',
+      'service2.name': 'Gestión de Estilo de Vida',
+      'service2.desc': 'Reservas en restaurantes con lista de espera, acceso a eventos VIP y personal shopper.',
+      'service2.benefit': 'Su vida social al más alto nivel, sin esfuerzo.',
+      'service3.name': 'Logística y Transporte',
+      'service3.desc': 'Flota privada, aviación ejecutiva y conductores bilingües a su disposición 24/7.',
+      'service3.benefit': 'Llegue a donde necesite con comodidad, seguridad y puntualidad.',
+      'service4.name': 'Eventos Exclusivos',
+      'service4.desc': 'Organización completa de celebraciones privadas, cenas con chefs de renombre y fiestas temáticas.',
+      'service4.benefit': 'Momentos memorables, planificados hasta el más mínimo detalle.',
+
+      // 04. NUESTROS PLANES
+      'plans.label': 'Inversión',
+      'plans.title': 'Elija el nivel de cuidado que tenga sentido para su momento',
+      'plan1.name': 'Esencial',
+      'plan1.price': 'Bajo consulta',
+      'plan1.desc': 'Ideal para quienes buscan soporte puntual en viajes y ocio.',
+      'plan1.feat1': 'Curaduría de 1 viaje/año',
+      'plan1.feat2': 'Reservas de restaurantes VIP',
+      'plan1.feat3': 'Soporte vía WhatsApp 8/5',
+      'plan2.name': 'Premium',
+      'plan2.price': 'Recomendado',
+      'plan2.desc': 'Gestión activa de su estilo de vida y necesidades recurrentes.',
+      'plan2.feat1': 'Viajes ilimitados',
+      'plan2.feat2': 'Personal Shopper & Gift Finder',
+      'plan2.feat3': 'Soporte dedicado 24/7',
+      'plan3.name': 'Exclusive',
+      'plan3.price': 'Alto Rendimiento',
+      'plan3.desc': 'El auge de la personalización con un conserje dedicado exclusivo.',
+      'plan3.feat1': 'Conserje residente (opcional)',
+      'plan3.feat2': 'Acceso a clubes ultra-exclusivos',
+      'plan3.feat3': 'Prioridad máxima en todas las solicitudes',
+      'plans.cta': 'Quiero este plan',
+
+      // 05. MINI CASOS
+      'cases.label': 'Situaciones Reales',
+      'cases.title': 'Cómo transformamos lo común en extraordinario',
+      'case1.title': 'La Cena Imposible',
+      'case1.desc': 'Un cliente necesitaba una mesa para 10 personas en un restaurante con 6 meses de espera en París. Lo resolvimos en 4 horas a través de nuestra red de socios locales.',
+      'case2.title': 'Cumpleaños en las Maldivas',
+      'case2.desc': 'Organizamos una fiesta sorpresa en una isla privada, incluyendo el transporte de un chef específico y decoración temática, todo en menos de 15 días.',
+      'case3.title': 'Logística de Emergencia',
+      'case3.desc': 'Coordinamos la evacuación médica privada y el regreso seguro de una familia durante una crisis inesperada en un destino remoto.',
+
+      // 06. CREDIBILIDAD
+      'stats.clients': 'Clientes Atendidos',
+      'stats.experience': 'Años de Experiencia',
+      'stats.countries': 'Países Atendidos',
+      'stats.satisfaction': 'Satisfacción',
+      'reviews.title': 'Lo que dicen nuestros clientes',
+      'reviews.subtitle': 'La confianza de quienes viven lo extraordinario todos los días.',
+
+      // 07. GALERÍA
+      'gallery.title': 'Galería de Experiencias',
+      'gallery.subtitle': 'Un vistazo a los momentos que creamos para nuestros miembros.',
+
+      // 08. INVERSIÓN Y CONDICIONES
+      'investment.payment': 'Formas de Pago',
+      'investment.methods': 'Pix, Tarjeta de Crédito (hasta 12x), Transferencia Bancaria y Pagos Internacionales.',
+      'investment.validity': 'Propuesta válida por 15 días a partir de la fecha de emisión.',
+      'investment.refund': 'Política de Cancelación: Reembolso íntegro hasta 7 días después de la contratación. Después de este período, condiciones a medida según el plan.',
+
+      // 09. CÓMO FUNCIONA
+      'workflow.label': 'Cómo Funciona',
+      'workflow.title': 'Su camino hacia una vida sin preocupaciones',
+      'step1.title': 'Charla Inicial',
+      'step1.desc': 'Entendemos su perfil, necesidades y lo que más valora.',
+      'step2.title': 'Briefing Detallado',
+      'step2.desc': 'Mapeamos sus preferencias, desde alergias alimentarias hasta marcas favoritas.',
+      'step3.title': 'Propuesta a Medida',
+      'step3.desc': 'Presentamos el plan y las estrategias ideales para su estilo de vida.',
+      'step4.title': 'Contratación',
+      'step4.desc': 'Formalizamos la alianza y usted recibe su conserje dedicado.',
+      'step5.title': 'Ejecución Impecable',
+      'step5.desc': 'Nosotros cuidamos de todo. Usted solo disfruta del resultado.',
+
+      // 10. CONTÁCTENOS
+      'footer.cta.title': '¿Listo para vivir con más ligereza?',
+      'footer.cta.subtitle': 'Hable con nuestro equipo hoy y descubra cómo podemos elevar su estilo de vida.',
+      'footer.sla': 'Respondemos en hasta 2 horas en días hábiles.',
+      'footer.contact.title': 'Canales de Atención',
+      'footer.hours': 'Horario: 24/7 para miembros Exclusive | 09h a 18h para soporte general.',
+      'footer.signature.name': 'Responsable Toca Experience',
+      'footer.signature.role': 'Director de Relaciones',
+      'footer.copyright': '© 2026 Toca Experience. Todos los derechos reservados.',
+      
       // Navigation
-      'nav.home': 'INICIO',
-      'nav.gallery': 'GALERÍA',
-      'nav.videos': 'VIDEOS',
-      'nav.property': 'PROPIEDAD',
-      'nav.map': 'MAPA',
-      'nav.investment': 'INVERSIÓN',
-      'nav.book': 'Reservar',
-      'nav.language': 'ES',
-
-      // Hero
-      'hero.badge': 'EXPERIENCIA EXCLUSIVA',
-      'hero.title': 'Concierge de <span style="font-style: italic;">Estilo de Vida</span>',
-      'hero.subtitle': 'Curaduría de experiencias lujosas, personalización total y equipos dedicados para su estadía perfecta.',
-      'hero.cta1': '💬 Contactar por WhatsApp',
-      'hero.cta2': 'Saber Más',
-
-      // Stats
-      'stats.clients': 'Clientes Satisfechos',
-      'stats.reservations': 'Reservas Realizadas',
-      'stats.satisfaction': 'Tasa de Satisfacción',
-
-      // Gallery
-      'gallery.title': 'Galería de Fotos',
-      'gallery.subtitle': 'Tour completo por la casa, áreas externas, piscina, jacuzzi y toda la estructura para que su grupo disfrute con privacidad y confort total.',
-      'gallery.expand': 'AMPLIAR',
-
-      // Videos
-      'videos.title': 'Videos de la Propiedad',
-      'videos.subtitle': 'Vea en detalle cada ambiente y la atmósfera exclusiva de esta casa de alto estándar.',
-
-      // Map
-      'map.title': 'Puntos de Interés Cercanos',
-      'map.subtitle': 'Descubra playas, bares, discotecas y restaurantes en un radio de 10 km de la propiedad.',
-      'map.filter.all': 'Todos',
-      'map.filter.beaches': '🏖️Playas',
-      'map.filter.bars': '🍹Bares',
-      'map.filter.clubs': '🎉Discotecas',
-      'map.filter.restaurants': '🍽️Restaurantes',
-      'map.filter.airport': '✈️Aeropuerto',
-
-      // Period
-      'period.title': 'Feriado de Conciencia Negra 2025',
-      'period.subtitle': 'Una experiencia exclusiva durante el feriado prolongado de Conciencia Negra con 5 noches de alojamiento.',
-      'period.checkin': 'Check-in',
-      'period.checkout': 'Check-out',
-      'period.duration': 'Duración',
-      'period.guests': 'Máximo de huéspedes',
-
-      // Concierge Services
-      'concierge.title': 'Servicios de Concierge de Estilo de Vida',
-      'concierge.subtitle': 'Experiencia personalizada con equipos dedicados, curaduría de actividades y logística completa para su estadía perfecta.',
-      'concierge.curation': 'Curaduría Exclusiva',
-      'concierge.teams': 'Equipos Dedicados',
-      'concierge.logistics': 'Logística Completa',
-      'concierge.events': 'Eventos Personalizados',
-      'concierge.why': '¿Por Qué Elegir Nuestro Concierge?',
-
-      // Investment
-      'investment.title': 'Paquete Feriado Conciencia Negra',
-      'investment.subtitle': 'Experiencia completa para 15 personas con 5 noches de alojamiento, equipo dedicado y actividades curadas.',
-      'investment.total': 'Valor Total del Paquete',
-      'investment.distribution': 'Distribución de la Inversión',
-
-      // FAQ
-      'faq.title': 'Preguntas Frecuentes',
-      'faq.subtitle': 'Resuelva sus dudas sobre el servicio de concierge Toca Experience',
-      'faq.q1': '¿Qué está incluido en el servicio de concierge?',
-      'faq.a1': 'Nuestro servicio incluye curaduría de experiencias, equipos dedicados 24/7, logística completa, transporte privado, coordinación de actividades y soporte total durante su estadía.',
-      'faq.q2': '¿Cómo funciona el proceso de reserva?',
-      'faq.a2': 'Puede completar nuestro formulario de pre-reserva, ponerse en contacto por WhatsApp o hablar con nuestro equipo de concierge. Analizamos sus preferencias y creamos una experiencia personalizada.',
-      'faq.q3': '¿Qué comodidades están disponibles en la propiedad?',
-      'faq.a3': 'La propiedad ofrece piscina, jacuzzi, área gourmet, sala de cine, gimnasio, spa y áreas de convivencia espaciosas para hasta 15 huéspedes.',
-      'faq.q4': '¿Es posible hacer check-in anticipado o check-out tardío?',
-      'faq.a4': 'Sí, ofrecemos flexibilidad de horarios según disponibilidad. Contáctenos para solicitar esta posibilidad.',
-      'faq.q5': '¿Cómo funciona el soporte durante la estadía?',
-      'faq.a5': 'Nuestro equipo está disponible 24/7 para cualquier necesidad. Puede contactarnos por WhatsApp, teléfono o personalmente con nuestros profesionales en la propiedad.',
-      'faq.q6': '¿Ofrecen servicios de transfer y paseos?',
-      'faq.a6': 'Sí, ofrecemos conductor privado, transfers al aeropuerto y paseos personalizados según sus preferencias.',
-      'faq.q7': '¿Cuál es la política de cancelación?',
-      'faq.a7': 'Ofrecemos diferentes políticas de cancelación según el tipo de reserva. Contáctenos para conocer las opciones disponibles.',
-      'faq.q8': '¿Cómo me comunico con el equipo de concierge?',
-      'faq.a8': 'Puede contactarnos por WhatsApp, teléfono, correo electrónico o a través del formulario de contacto en el sitio. Respondemos en hasta 2 horas.',
-      'faq.contact': '¿Aún tiene dudas?',
-
-      // Pre-booking Form
-      'prebooking.title': 'Pre-Reserva',
-      'prebooking.subtitle': 'Complete el formulario a continuación y nuestro equipo se comunicará para confirmar su experiencia',
-      'prebooking.name': 'Nombre Completo',
-      'prebooking.email': 'Correo Electrónico',
-      'prebooking.phone': 'Teléfono/WhatsApp',
-      'prebooking.checkin': 'Check-in',
-      'prebooking.checkout': 'Check-out',
-      'prebooking.adults': 'Número de Adultos',
-      'prebooking.children': 'Número de Niños',
-      'prebooking.message': 'Mensaje (opcional)',
-      'prebooking.nights': 'Noches',
-      'prebooking.submit': 'Enviar Pre-Reserva',
-      'prebooking.loading': 'Enviando...',
-      'prebooking.success': '¡Pre-reserva enviada con éxito!',
-      'prebooking.error': 'Error al enviar pre-reserva. Intente de nuevo.',
-
-      // Reviews
-      'reviews.title': 'Evaluaciones de Clientes',
-      'reviews.subtitle': 'Vea qué dicen nuestros clientes sobre sus experiencias',
-      'reviews.form.name': 'Su Nombre',
-      'reviews.form.stars': 'Evaluación',
-      'reviews.form.comment': 'Su Comentario',
-      'reviews.form.stayMonth': 'Mes de la Estadía',
-      'reviews.form.submit': 'Enviar Evaluación',
-      'reviews.average': 'Evaluación Promedio',
-      'reviews.leaveReview': 'Deje su Evaluación',
-      'reviews.disclaimer': 'Los testimonios mostrados son de clientes reales verificados por el equipo Toca Experience. Los ejemplos ilustrativos se identifican como tales.',
-
-      // Chat
-      'chat.welcome': '¡Hola! 👋 Bienvenido a Toca Experience. ¿Cómo podemos ayudarte?',
-
-      // Buttons
-      'buttons.whatsapp': '💬 Contactar por WhatsApp',
-      'buttons.learnMore': 'Saber Más',
-      'buttons.chooseItinerary': 'Elegir Itinerario',
-      'buttons.customItinerary': 'Crear Itinerario Personalizado',
-      'buttons.submit': 'Enviar Formulario',
-
-      // Property
-      'property.label': 'PROPIEDAD',
-      'property.title': 'Casa de Lujo en Florianópolis',
-      'property.guests': 'Huéspedes',
-      'property.bedrooms': 'Suites',
-    },
+      'nav.home': 'Inicio',
+      'nav.services': 'Servicios',
+      'nav.plans': 'Planes',
+      'nav.cases': 'Casos',
+      'nav.contact': 'Contacto',
+    }
   },
   en: {
     translation: {
+      // 01. HERO
+      'hero.tagline': 'Experience curation for those who value every moment.',
+      'hero.title': 'While you focus on what matters, <span class="text-accent">Toca takes care of the rest</span>.',
+      'hero.subtitle': 'Lifestyle concierge and curation for those who value every hour of the day. From the perfect dinner to the dream trip — we solve it.',
+      'hero.cta': 'Schedule a free chat →',
+
+      // 02. FOR WHOM IT IS
+      'personas.label': 'For whom it is',
+      'personas.title': 'Tailored solutions for extraordinary routines',
+      'personas.subtitle': 'We understand that your time is your most valuable resource. That\'s why we create services that mold to your lifestyle.',
+      'persona1.name': 'Executives & Entrepreneurs',
+      'persona1.desc': 'Complete management of personal schedule, corporate travel, and networking events so you stay focused on growing your business.',
+      'persona2.name': 'High-Net-Worth Families',
+      'persona2.desc': 'Planning of unforgettable vacations, property management, and educational leisure curation for children, with total safety and privacy.',
+      'persona3.name': 'Luxury Digital Nomads',
+      'persona3.desc': 'Impeccable logistics anywhere in the world, from choosing the ideal villa to connecting with the most exclusive local communities.',
+
+      // 03. WHAT WE OFFER
+      'services.label': 'What we take care of for you',
+      'services.title': 'Live more and better, without daily worries',
+      'services.subtitle': 'You don\'t have to choose between living well and living busy. Toca takes care of every detail so your experience is always flawless.',
+      'service1.name': 'Travel Curation',
+      'service1.desc': 'Access to exclusive destinations, personalized itineraries, and the best villas in the world.',
+      'service1.benefit': 'Experiences that money alone can\'t buy.',
+      'service2.name': 'Lifestyle Management',
+      'service2.desc': 'Reservations at restaurants with waiting lists, access to VIP events, and personal shopper.',
+      'service2.benefit': 'Your social life at the highest level, effortlessly.',
+      'service3.name': 'Logistics and Transport',
+      'service3.desc': 'Private fleet, executive aviation, and bilingual drivers at your disposal 24/7.',
+      'service3.benefit': 'Get where you need to go with comfort, safety, and punctuality.',
+      'service4.name': 'Exclusive Events',
+      'service4.desc': 'Complete organization of private celebrations, dinners with renowned chefs, and themed parties.',
+      'service4.benefit': 'Memorable moments, planned to the smallest detail.',
+
+      // 04. OUR PLANS
+      'plans.label': 'Investment',
+      'plans.title': 'Choose the level of care that makes sense for your moment',
+      'plan1.name': 'Essential',
+      'plan1.price': 'Upon request',
+      'plan1.desc': 'Ideal for those seeking punctual support in travel and leisure.',
+      'plan1.feat1': 'Curation of 1 trip/year',
+      'plan1.feat2': 'VIP restaurant reservations',
+      'plan1.feat3': 'WhatsApp support 8/5',
+      'plan2.name': 'Premium',
+      'plan2.price': 'Recommended',
+      'plan2.desc': 'Active management of your lifestyle and recurring needs.',
+      'plan2.feat1': 'Unlimited travel',
+      'plan2.feat2': 'Personal Shopper & Gift Finder',
+      'plan2.feat3': '24/7 dedicated support',
+      'plan3.name': 'Exclusive',
+      'plan3.price': 'High Performance',
+      'plan3.desc': 'The peak of personalization with an exclusive dedicated concierge.',
+      'plan3.feat1': 'Resident concierge (optional)',
+      'plan3.feat2': 'Access to ultra-exclusive clubs',
+      'plan3.feat3': 'Top priority for all requests',
+      'plans.cta': 'I want this plan',
+
+      // 05. MINI CASES
+      'cases.label': 'Real Situations',
+      'cases.title': 'How we transform the common into extraordinary',
+      'case1.title': 'The Impossible Dinner',
+      'case1.desc': 'A client needed a table for 10 people at a restaurant with a 6-month wait in Paris. We solved it in 4 hours through our network of local partners.',
+      'case2.title': 'Birthday in the Maldives',
+      'case2.desc': 'We organized a surprise party on a private island, including the transport of a specific chef and themed decoration, all in less than 15 days.',
+      'case3.title': 'Emergency Logistics',
+      'case3.desc': 'We coordinated the private medical evacuation and safe return of a family during an unexpected crisis in a remote destination.',
+
+      // 06. CREDIBILITY
+      'stats.clients': 'Clients Served',
+      'stats.experience': 'Years of Experience',
+      'stats.countries': 'Countries Served',
+      'stats.satisfaction': 'Satisfaction',
+      'reviews.title': 'What our clients say',
+      'reviews.subtitle': 'The trust of those who live the extraordinary every day.',
+
+      // 07. GALLERY
+      'gallery.title': 'Experience Gallery',
+      'gallery.subtitle': 'A glimpse of the moments we create for our members.',
+
+      // 08. INVESTMENT & CONDITIONS
+      'investment.payment': 'Payment Methods',
+      'investment.methods': 'Pix, Credit Card (up to 12x), Bank Transfer, and International Payments.',
+      'investment.validity': 'Proposal valid for 15 days from the date of issue.',
+      'investment.refund': 'Cancellation Policy: Full refund up to 7 days after hiring. After this period, tailored conditions according to the plan.',
+
+      // 09. HOW IT WORKS
+      'workflow.label': 'How It Works',
+      'workflow.title': 'Your path to a worry-free life',
+      'step1.title': 'Initial Chat',
+      'step1.desc': 'We understand your profile, needs, and what you value most.',
+      'step2.title': 'Detailed Briefing',
+      'step2.desc': 'We map your preferences, from food allergies to favorite brands.',
+      'step3.title': 'Tailored Proposal',
+      'step3.desc': 'We present the ideal plan and strategies for your lifestyle.',
+      'step4.title': 'Hiring',
+      'step4.desc': 'We formalize the partnership and you receive your dedicated concierge.',
+      'step5.title': 'Flawless Execution',
+      'step5.desc': 'We take care of everything. You just enjoy the result.',
+
+      // 10. CONTACT US
+      'footer.cta.title': 'Ready to live more lightly?',
+      'footer.cta.subtitle': 'Speak with our team today and discover how we can elevate your lifestyle.',
+      'footer.sla': 'We respond within 2 hours on business days.',
+      'footer.contact.title': 'Service Channels',
+      'footer.hours': 'Hours: 24/7 for Exclusive members | 9am to 6pm for general support.',
+      'footer.signature.name': 'Toca Experience Lead',
+      'footer.signature.role': 'Relationship Director',
+      'footer.copyright': '© 2026 Toca Experience. All rights reserved.',
+      
       // Navigation
-      'nav.home': 'HOME',
-      'nav.gallery': 'GALLERY',
-      'nav.videos': 'VIDEOS',
-      'nav.property': 'PROPERTY',
-      'nav.map': 'MAP',
-      'nav.investment': 'INVESTMENT',
-      'nav.book': 'Book',
-      'nav.language': 'EN',
-
-      // Hero
-      'hero.badge': 'EXCLUSIVE EXPERIENCE',
-      'hero.title': 'Lifestyle <span style="font-style: italic;">Concierge</span>',
-      'hero.subtitle': 'Curation of luxurious experiences, total personalization and dedicated teams for your perfect stay.',
-      'hero.cta1': '💬 Contact via WhatsApp',
-      'hero.cta2': 'Learn More',
-
-      // Stats
-      'stats.clients': 'Satisfied Clients',
-      'stats.reservations': 'Completed Reservations',
-      'stats.satisfaction': 'Satisfaction Rate',
-
-      // Gallery
-      'gallery.title': 'Photo Gallery',
-      'gallery.subtitle': 'Complete tour of the house, outdoor areas, pool, jacuzzi and all the structure for your group to enjoy with privacy and total comfort.',
-      'gallery.expand': 'EXPAND',
-
-      // Videos
-      'videos.title': 'Property Videos',
-      'videos.subtitle': 'See in detail each environment and the exclusive atmosphere of this high-standard house.',
-
-      // Map
-      'map.title': 'Nearby Points of Interest',
-      'map.subtitle': 'Discover beaches, bars, clubs and restaurants within a 10 km radius of the property.',
-      'map.filter.all': 'All',
-      'map.filter.beaches': '🏖️Beaches',
-      'map.filter.bars': '🍹Bars',
-      'map.filter.clubs': '🎉Clubs',
-      'map.filter.restaurants': '🍽️Restaurants',
-      'map.filter.airport': '✈️Airport',
-
-      // Period
-      'period.title': 'Black Consciousness Holiday 2025',
-      'period.subtitle': 'An exclusive experience during the extended Black Consciousness holiday with 5 nights of accommodation.',
-      'period.checkin': 'Check-in',
-      'period.checkout': 'Check-out',
-      'period.duration': 'Duration',
-      'period.guests': 'Maximum Guests',
-
-      // Concierge Services
-      'concierge.title': 'Lifestyle Concierge Services',
-      'concierge.subtitle': 'Customized experience with dedicated teams, activity curation and complete logistics for your perfect stay.',
-      'concierge.curation': 'Exclusive Curation',
-      'concierge.teams': 'Dedicated Teams',
-      'concierge.logistics': 'Complete Logistics',
-      'concierge.events': 'Customized Events',
-      'concierge.why': 'Why Choose Our Concierge?',
-
-      // Investment
-      'investment.title': 'Black Consciousness Holiday Package',
-      'investment.subtitle': 'Complete experience for 15 people with 5 nights of accommodation, dedicated team and curated activities.',
-      'investment.total': 'Total Package Value',
-      'investment.distribution': 'Investment Distribution',
-
-      // FAQ
-      'faq.title': 'Frequently Asked Questions',
-      'faq.subtitle': 'Get your questions answered about Toca Experience concierge service',
-      'faq.q1': 'What is included in the concierge service?',
-      'faq.a1': 'Our service includes experience curation, 24/7 dedicated teams, complete logistics, private transportation, activity coordination and full support during your stay.',
-      'faq.q2': 'How does the booking process work?',
-      'faq.a2': 'You can fill out our pre-booking form, contact us via WhatsApp or speak with our concierge team. We analyze your preferences and create a personalized experience.',
-      'faq.q3': 'What amenities are available at the property?',
-      'faq.a3': 'The property offers pool, jacuzzi, gourmet area, cinema room, gym, spa and spacious common areas for up to 15 guests.',
-      'faq.q4': 'Is early check-in or late check-out possible?',
-      'faq.a4': 'Yes, we offer schedule flexibility based on availability. Contact us to request this possibility.',
-      'faq.q5': 'How does support work during the stay?',
-      'faq.a5': 'Our team is available 24/7 for any needs. You can contact us via WhatsApp, phone or in person with our professionals at the property.',
-      'faq.q6': 'Do you offer transfer and tour services?',
-      'faq.a6': 'Yes, we offer private driver, airport transfers and customized tours according to your preferences.',
-      'faq.q7': 'What is the cancellation policy?',
-      'faq.a7': 'We offer different cancellation policies depending on the type of reservation. Contact us to learn about available options.',
-      'faq.q8': 'How do I contact the concierge team?',
-      'faq.a8': 'You can contact us via WhatsApp, phone, email or through the contact form on the website. We respond within 2 hours.',
-      'faq.contact': 'Still have questions?',
-
-      // Pre-booking Form
-      'prebooking.title': 'Pre-Booking',
-      'prebooking.subtitle': 'Fill out the form below and our team will contact you to confirm your experience',
-      'prebooking.name': 'Full Name',
-      'prebooking.email': 'Email',
-      'prebooking.phone': 'Phone/WhatsApp',
-      'prebooking.checkin': 'Check-in',
-      'prebooking.checkout': 'Check-out',
-      'prebooking.adults': 'Number of Adults',
-      'prebooking.children': 'Number of Children',
-      'prebooking.message': 'Message (optional)',
-      'prebooking.nights': 'Nights',
-      'prebooking.submit': 'Send Pre-Booking',
-      'prebooking.loading': 'Sending...',
-      'prebooking.success': 'Pre-booking sent successfully!',
-      'prebooking.error': 'Error sending pre-booking. Please try again.',
-
-      // Reviews
-      'reviews.title': 'Customer Reviews',
-      'reviews.subtitle': 'See what our customers say about their experiences',
-      'reviews.form.name': 'Your Name',
-      'reviews.form.stars': 'Rating',
-      'reviews.form.comment': 'Your Comment',
-      'reviews.form.stayMonth': 'Stay Month',
-      'reviews.form.submit': 'Submit Review',
-      'reviews.average': 'Average Rating',
-      'reviews.leaveReview': 'Leave Your Review',
-      'reviews.disclaimer': 'The testimonials displayed are from real customers verified by the Toca Experience team. Illustrative examples are identified as such.',
-
-      // Chat
-      'chat.welcome': 'Hello! 👋 Welcome to Toca Experience. How can we help you?',
-
-      // Buttons
-      'buttons.whatsapp': '💬 Contact via WhatsApp',
-      'buttons.learnMore': 'Learn More',
-      'buttons.chooseItinerary': 'Choose Itinerary',
-      'buttons.customItinerary': 'Create Custom Itinerary',
-      'buttons.submit': 'Submit Form',
-
-      // Property
-      'property.label': 'PROPERTY',
-      'property.title': 'Luxury House in Florianópolis',
-      'property.guests': 'Guests',
-      'property.bedrooms': 'Suites',
-    },
-  },
+      'nav.home': 'Home',
+      'nav.services': 'Services',
+      'nav.plans': 'Plans',
+      'nav.cases': 'Cases',
+      'nav.contact': 'Contact',
+    }
+  }
 };
 
 i18n

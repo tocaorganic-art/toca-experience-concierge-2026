@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Star } from 'lucide-react';
+import { Star, Quote } from 'lucide-react';
 import { trpc } from '@/lib/trpc';
 
 interface Review {
@@ -29,7 +29,7 @@ const fallbackReviews: Review[] = [
   {
     id: '3',
     name: 'Ana Costa',
-    stars: 4,
+    stars: 5,
     comment: 'Ótima experiência, equipe atenciosa e propriedade linda. Voltaremos com certeza!',
     stayMonth: 'Setembro 2024',
   },
@@ -117,160 +117,148 @@ export function ReviewSystem() {
   };
 
   return (
-    <section id="reviews" className="py-8 md:py-20 pb-20 md:pb-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
-      <div className="max-w-6xl mx-auto">
+    <section id="reviews" className="py-24 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
-          <p className="text-[rgb(201_168_76)] text-sm uppercase tracking-widest font-semibold mb-2">
-            {t('reviews.title')}
-          </p>
-          <h2 className="font-serif text-4xl md:text-5xl font-light text-white mb-4">
-            {t('reviews.title')}
-          </h2>
-          <p className="text-gray-400 text-lg">
+        <div className="text-center mb-20">
+          <span className="section-label">{t('reviews.title')}</span>
+          <h2 className="section-title">{t('reviews.title')}</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
             {t('reviews.subtitle')}
           </p>
         </div>
 
         {/* Average Rating */}
-        <div className="text-center mb-12">
-          <div className="inline-block">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <span className="text-5xl font-bold text-[rgb(201_168_76)]">{averageRating}</span>
-              <div className="flex gap-1">
-                {[1, 2, 3, 4, 5].map(i => (
-                  <Star
-                    key={i}
-                    size={24}
-                    className={i <= Math.round(parseFloat(averageRating as string)) ? 'fill-[rgb(201_168_76)] text-[rgb(201_168_76)]' : 'text-gray-600'}
-                  />
-                ))}
-              </div>
-            </div>
-            <p className="text-gray-400">{t('reviews.average')}</p>
+        <div className="flex flex-col items-center mb-20 p-10 rounded-[2.5rem] bg-[#F8F5F0] border border-gray-100 max-w-lg mx-auto shadow-sm">
+          <div className="text-6xl font-serif font-bold text-[#1D3557] mb-4">{averageRating}</div>
+          <div className="flex gap-1 mb-4">
+            {[1, 2, 3, 4, 5].map(i => (
+              <Star
+                key={i}
+                size={28}
+                className={i <= Math.round(parseFloat(averageRating as string)) ? 'fill-[#A8924A] text-[#A8924A]' : 'text-gray-300'}
+              />
+            ))}
           </div>
+          <p className="text-sm font-bold uppercase tracking-widest text-gray-400">{t('reviews.average')}</p>
         </div>
 
         {/* Reviews Grid */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-20">
           {reviews.map(review => (
             <div
               key={review.id}
-              className="p-6 bg-gradient-to-br from-[rgb(22_22_22)] to-black border border-[rgb(201_168_76)]/20 rounded hover:border-[rgb(201_168_76)]/40 transition-all"
+              className="p-10 bg-white border border-gray-100 rounded-[2rem] hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 relative group"
             >
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="font-semibold text-white">{review.name}</h3>
-                <div className="flex gap-1">
-                  {[1, 2, 3, 4, 5].map(i => (
-                    <Star
-                      key={i}
-                      size={16}
-                      className={i <= review.stars ? 'fill-[rgb(201_168_76)] text-[rgb(201_168_76)]' : 'text-gray-600'}
-                    />
-                  ))}
-                </div>
+              <Quote className="w-10 h-10 text-[#A8924A]/10 absolute top-8 right-8 group-hover:text-[#A8924A]/20 transition-colors" />
+              <div className="flex gap-1 mb-6">
+                {[1, 2, 3, 4, 5].map(i => (
+                  <Star
+                    key={i}
+                    size={16}
+                    className={i <= review.stars ? 'fill-[#A8924A] text-[#A8924A]' : 'text-gray-200'}
+                  />
+                ))}
               </div>
-              <p className="text-gray-300 mb-4">{review.comment}</p>
-              <p className="text-sm text-gray-500">{review.stayMonth}</p>
+              <p className="text-gray-600 mb-8 leading-relaxed italic">"{review.comment}"</p>
+              <div className="pt-6 border-t border-gray-50">
+                <h4 className="font-bold text-[#1D3557]">{review.name}</h4>
+                <p className="text-xs font-bold uppercase tracking-widest text-[#A8924A] mt-1">{review.stayMonth}</p>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Disclaimer */}
-        <div className="p-4 bg-[rgb(201_168_76)]/10 border border-[rgb(201_168_76)]/30 rounded mb-12">
-                  <p className="text-sm text-gray-300">
-                    {t('reviews.disclaimer')}
-                  </p>
-        </div>
-
         {/* Review Form */}
-        <div className="max-w-2xl mx-auto">
-          <h3 className="text-2xl font-serif font-light text-white mb-6">
-            {t('reviews.leaveReview') || 'Deixe sua Avaliação'}
-          </h3>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name */}
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                {t('reviews.form.name')} *
-              </label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Seu nome"
-                className="w-full px-4 py-3 bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 rounded text-white placeholder-gray-600 focus:border-[rgb(201_168_76)]/60 focus:outline-none transition-all"
-              />
-            </div>
-
-            {/* Stars */}
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                {t('reviews.form.stars')} *
-              </label>
-              <div className="flex gap-2">
-                {[1, 2, 3, 4, 5].map(star => (
-                  <button
-                    key={star}
-                    type="button"
-                    onClick={() => setFormData(prev => ({ ...prev, stars: star }))}
-                    className="transition-all"
-                  >
-                    <Star
-                      size={32}
-                      className={star <= formData.stars ? 'fill-[rgb(201_168_76)] text-[rgb(201_168_76)]' : 'text-gray-600 hover:text-[rgb(201_168_76)]'}
-                    />
-                  </button>
-                ))}
+        <div className="max-w-3xl mx-auto bg-[#1D3557] rounded-[3rem] p-8 md:p-16 text-white shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+          
+          <div className="relative z-10">
+            <h3 className="text-3xl font-bold mb-8 text-center">
+              {t('reviews.leaveReview')}
+            </h3>
+            
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-gray-400">
+                    {t('reviews.form.name')}
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-6 py-4 bg-white/10 border border-white/10 rounded-2xl text-white placeholder-white/30 focus:border-[#A8924A] focus:outline-none transition-all"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-bold uppercase tracking-widest text-gray-400">
+                    {t('reviews.form.stayMonth')}
+                  </label>
+                  <input
+                    type="month"
+                    name="stayMonth"
+                    value={formData.stayMonth}
+                    onChange={handleChange}
+                    className="w-full px-6 py-4 bg-white/10 border border-white/10 rounded-2xl text-white focus:border-[#A8924A] focus:outline-none transition-all"
+                  />
+                </div>
               </div>
-            </div>
 
-            {/* Comment */}
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                {t('reviews.form.comment')} *
-              </label>
-              <textarea
-                name="comment"
-                value={formData.comment}
-                onChange={handleChange}
-                placeholder="Compartilhe sua experiência..."
-                rows={4}
-                className="w-full px-4 py-3 bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 rounded text-white placeholder-gray-600 focus:border-[rgb(201_168_76)]/60 focus:outline-none transition-all resize-none"
-              />
-            </div>
-
-            {/* Stay Month */}
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">
-                {t('reviews.form.stayMonth')} *
-              </label>
-              <input
-                type="month"
-                name="stayMonth"
-                value={formData.stayMonth}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 rounded text-white focus:border-[rgb(201_168_76)]/60 focus:outline-none transition-all"
-              />
-            </div>
-
-            {/* Message */}
-            {message && (
-              <div className={`p-4 rounded ${message.type === 'success' ? 'bg-green-900/20 border border-green-500/30 text-green-400' : 'bg-red-900/20 border border-red-500/30 text-red-400'}`}>
-                {message.text}
+              <div className="space-y-2 text-center">
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-400 block mb-4">
+                  {t('reviews.form.stars')}
+                </label>
+                <div className="flex justify-center gap-4">
+                  {[1, 2, 3, 4, 5].map(star => (
+                    <button
+                      key={star}
+                      type="button"
+                      onClick={() => setFormData(prev => ({ ...prev, stars: star }))}
+                      className="transition-all hover:scale-110"
+                    >
+                      <Star
+                        size={40}
+                        className={star <= formData.stars ? 'fill-[#A8924A] text-[#A8924A]' : 'text-white/20 hover:text-[#A8924A]/50'}
+                      />
+                    </button>
+                  ))}
+                </div>
               </div>
-            )}
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={loading || submitReview.isPending}
-              className="w-full px-8 py-4 bg-gradient-to-r from-[rgb(201_168_76)] to-[rgb(154_122_46)] text-black font-bold rounded hover:shadow-lg hover:-translate-y-1 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {loading || submitReview.isPending ? 'Enviando...' : t('reviews.form.submit')}
-            </button>
-          </form>
+              <div className="space-y-2">
+                <label className="text-xs font-bold uppercase tracking-widest text-gray-400">
+                  {t('reviews.form.comment')}
+                </label>
+                <textarea
+                  name="comment"
+                  value={formData.comment}
+                  onChange={handleChange}
+                  rows={4}
+                  className="w-full px-6 py-4 bg-white/10 border border-white/10 rounded-2xl text-white placeholder-white/30 focus:border-[#A8924A] focus:outline-none transition-all resize-none"
+                />
+              </div>
+
+              {message && (
+                <div className={`p-6 rounded-2xl text-center font-bold ${message.type === 'success' ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-red-500/20 text-red-400 border border-red-500/30'}`}>
+                  {message.text}
+                </div>
+              )}
+
+              <button
+                type="submit"
+                disabled={loading || submitReview.isPending}
+                className="w-full py-5 bg-[#A8924A] text-white font-bold rounded-2xl hover:bg-[#A8924A]/90 transition-all shadow-xl shadow-[#A8924A]/20 disabled:opacity-50"
+              >
+                {loading || submitReview.isPending ? '...' : t('reviews.form.submit')}
+              </button>
+            </form>
+
+            <p className="mt-10 text-center text-xs text-white/40 leading-relaxed">
+              {t('reviews.disclaimer')}
+            </p>
+          </div>
         </div>
       </div>
     </section>

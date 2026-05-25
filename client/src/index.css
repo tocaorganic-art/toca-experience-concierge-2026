@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -44,51 +44,34 @@
 }
 
 :root {
-  /* Paleta Toca Experience - Preto e Dourado */
-  --gold: 201 168 76;
-  --gold-light: 232 208 138;
-  --gold-dark: 154 122 46;
-  --black: 6 6 6;
-  --dark: 14 14 14;
-  --dark2: 22 22 22;
-  --dark3: 30 30 30;
-  --white: 255 255 255;
-  --gray: 136 136 136;
-  --gray-light: 204 204 204;
+  /* Nova Paleta Toca Experience - Sofisticação Premium */
+  --navy: 29 53 87;
+  --gold: 168 146 74;
+  --accent-red: 230 57 70;
+  --off-white: 248 245 240;
+  --text-main: 44 44 42;
+  --gray-muted: 136 136 136;
 
-  --primary: oklch(0.65 0.2 60);
-  --primary-foreground: oklch(0.1 0 0);
-  --sidebar-primary: oklch(0.65 0.2 60);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --chart-1: oklch(0.65 0.2 60);
-  --chart-2: oklch(0.7 0.15 60);
-  --chart-3: oklch(0.6 0.25 60);
-  --chart-4: oklch(0.55 0.2 60);
-  --chart-5: oklch(0.5 0.15 60);
-  --radius: 0.65rem;
-  --background: oklch(0.05 0 0);
-  --foreground: oklch(1 0 0);
-  --card: oklch(0.1 0 0);
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.1 0 0);
-  --popover-foreground: oklch(1 0 0);
-  --secondary: oklch(0.12 0 0);
-  --secondary-foreground: oklch(0.9 0 0);
-  --muted: oklch(0.4 0 0);
-  --muted-foreground: oklch(0.8 0 0);
-  --accent: oklch(0.65 0.2 60);
-  --accent-foreground: oklch(0.05 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.15 0 0);
-  --input: oklch(0.1 0 0);
-  --ring: oklch(0.65 0.2 60);
-  --sidebar: oklch(0.1 0 0);
-  --sidebar-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.65 0.2 60);
-  --sidebar-accent-foreground: oklch(1 0 0);
-  --sidebar-border: oklch(0.15 0 0);
-  --sidebar-ring: oklch(0.65 0.2 60);
+  --radius: 0.5rem;
+  --background: #F8F5F0;
+  --foreground: #2C2C2A;
+  --card: #FFFFFF;
+  --card-foreground: #2C2C2A;
+  --popover: #FFFFFF;
+  --popover-foreground: #2C2C2A;
+  --primary: #1D3557;
+  --primary-foreground: #F8F5F0;
+  --secondary: #A8924A;
+  --secondary-foreground: #F8F5F0;
+  --muted: #F1F1F1;
+  --muted-foreground: #888888;
+  --accent: #A8924A;
+  --accent-foreground: #F8F5F0;
+  --destructive: #E63946;
+  --destructive-foreground: #F8F5F0;
+  --border: #E2E2E2;
+  --input: #FFFFFF;
+  --ring: #1D3557;
 }
 
 .dark {
@@ -134,10 +117,12 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -196,20 +181,24 @@
 }
 
 @layer components {
-  .btn-gold {
-    @apply bg-gradient-to-r from-[rgb(201_168_76)] to-[rgb(154_122_46)] text-black font-bold px-6 py-3 rounded transition-all hover:shadow-lg hover:-translate-y-1;
+  .btn-primary {
+    @apply bg-[#1D3557] text-[#F8F5F0] font-semibold px-8 py-4 rounded-full transition-all hover:bg-[#1D3557]/90 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0;
   }
 
-  .btn-outline-gold {
-    @apply border border-[rgb(201_168_76)] text-[rgb(201_168_76)] px-6 py-3 rounded transition-all hover:bg-[rgb(201_168_76)]/10;
+  .btn-accent {
+    @apply bg-[#E63946] text-[#F8F5F0] font-semibold px-8 py-4 rounded-full transition-all hover:bg-[#E63946]/90 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .btn-outline {
+    @apply border-2 border-[#1D3557] text-[#1D3557] font-semibold px-8 py-4 rounded-full transition-all hover:bg-[#1D3557]/5;
   }
 
   .section-title {
-    @apply font-serif text-4xl md:text-5xl font-light mb-4;
+    @apply font-serif text-4xl md:text-6xl font-bold mb-6 text-[#1D3557] leading-tight;
   }
 
   .section-label {
-    @apply text-xs uppercase tracking-widest text-[rgb(201_168_76)] font-semibold mb-2;
+    @apply text-sm uppercase tracking-[0.2em] text-[#A8924A] font-bold mb-4 block;
   }
 
   .shimmer {
