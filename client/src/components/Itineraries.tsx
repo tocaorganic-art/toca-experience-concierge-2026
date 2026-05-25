@@ -64,7 +64,7 @@ export function Itineraries() {
   ];
 
   return (
-    <section id="itineraries" className="py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
+    <section id="itineraries" className="py-8 md:py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 fade-in-up">
@@ -80,7 +80,7 @@ export function Itineraries() {
           {itineraries.map((itinerary) => (
             <div
               key={itinerary.id}
-              className={`p-8 rounded border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all bg-gradient-to-br ${itinerary.bgGradient}`}
+              className={`p-4 md:p-8 rounded border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all bg-gradient-to-br ${itinerary.bgGradient}`}
             >
               {/* Header */}
               <h3 className="text-2xl font-serif text-white mb-2">{itinerary.title}</h3>

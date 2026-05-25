@@ -106,7 +106,7 @@ export function InteractiveMap() {
   const categories = Object.keys(CATEGORY_LABELS) as Array<keyof typeof CATEGORY_LABELS>;
 
   return (
-    <section id="map" className="py-20 px-4 bg-black">
+    <section id="map" className="py-8 md:py-20 px-4 bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 fade-in-up">
@@ -165,7 +165,7 @@ export function InteractiveMap() {
         <div className="grid md:grid-cols-3 gap-6">
           {/* Map */}
           <div className="md:col-span-2">
-            <div className="rounded overflow-hidden bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 h-96 flex items-center justify-center">
+            <div className="rounded overflow-hidden bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 h-[240px] md:h-96 flex items-center justify-center">
               <p className="text-gray-500 text-center">Mapa Interativo<br/>(Google Maps integrado)</p>
             </div>
           </div>

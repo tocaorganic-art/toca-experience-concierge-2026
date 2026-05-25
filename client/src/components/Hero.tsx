@@ -21,7 +21,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col items-center justify-center pt-20 pb-0 px-4 overflow-hidden"
+      className="relative md:min-h-screen flex flex-col items-center justify-center pt-20 pb-0 px-4 overflow-hidden"
     >
       {/* Background Effects */}
       <div className="absolute inset-0 z-0">

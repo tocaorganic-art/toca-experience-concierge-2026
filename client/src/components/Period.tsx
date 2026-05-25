@@ -5,7 +5,7 @@ export function Period() {
   const { t } = useLanguage();
 
   return (
-    <section id="period" className="py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
+    <section id="period" className="py-8 md:py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 fade-in-up">
@@ -19,7 +19,7 @@ export function Period() {
         {/* Period Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
           {/* Check-in */}
-          <div className="p-8 rounded bg-gradient-to-br from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all">
+          <div className="p-4 md:p-8 rounded bg-gradient-to-br from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-full bg-[rgb(201_168_76)]/20 flex items-center justify-center">
                 <Calendar size={24} className="text-[rgb(201_168_76)]" />
@@ -37,7 +37,7 @@ export function Period() {
           </div>
 
           {/* Duration */}
-          <div className="p-8 rounded bg-gradient-to-br from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all">
+          <div className="p-4 md:p-8 rounded bg-gradient-to-br from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-full bg-[rgb(201_168_76)]/20 flex items-center justify-center">
                 <Moon size={24} className="text-[rgb(201_168_76)]" />
@@ -55,7 +55,7 @@ export function Period() {
           </div>
 
           {/* Check-out */}
-          <div className="p-8 rounded bg-gradient-to-br from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all">
+          <div className="p-4 md:p-8 rounded bg-gradient-to-br from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-full bg-[rgb(201_168_76)]/20 flex items-center justify-center">
                 <Calendar size={24} className="text-[rgb(201_168_76)]" />

@@ -55,7 +55,7 @@ export function Conditions() {
   ];
 
   return (
-    <section id="conditions" className="py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
+    <section id="conditions" className="py-8 md:py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 fade-in-up">
@@ -71,7 +71,7 @@ export function Conditions() {
           {conditions.map((condition, index) => (
             <div
               key={index}
-              className="p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all"
+              className="p-4 md:p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all"
             >
               {/* Icon and Title */}
               <div className="flex items-start gap-4 mb-4">

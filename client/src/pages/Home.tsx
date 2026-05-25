@@ -59,7 +59,7 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
       <ReservationSteps />
 
       {/* Property Section */}
-      <section id="property" className="py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
+      <section id="property" className="py-8 md:py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Content */}
@@ -92,20 +92,20 @@ export default function Home({ language, onLanguageChange }: HomeProps) {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 text-center hover:border-[rgb(201_168_76)]/40 transition-colors">
+            <div className="grid grid-cols-2 gap-4 mt-8 md:mt-0">
+              <div className="p-4 md:p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 text-center hover:border-[rgb(201_168_76)]/40 transition-colors">
                 <div className="text-3xl font-serif text-[rgb(201_168_76)] mb-2">15</div>
                 <p className="text-xs uppercase tracking-widest text-gray-500">{t("property.guests")}</p>
               </div>
-              <div className="p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 text-center hover:border-[rgb(201_168_76)]/40 transition-colors">
+              <div className="p-4 md:p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 text-center hover:border-[rgb(201_168_76)]/40 transition-colors">
                 <div className="text-3xl font-serif text-[rgb(201_168_76)] mb-2">8</div>
                 <p className="text-xs uppercase tracking-widest text-gray-500">{t("property.bedrooms")}</p>
               </div>
-              <div className="p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 text-center hover:border-[rgb(201_168_76)]/40 transition-colors">
+              <div className="p-4 md:p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 text-center hover:border-[rgb(201_168_76)]/40 transition-colors">
                 <div className="text-3xl font-serif text-[rgb(201_168_76)] mb-2">24/7</div>
                 <p className="text-xs uppercase tracking-widest text-gray-500">Concierge</p>
               </div>
-              <div className="p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 text-center hover:border-[rgb(201_168_76)]/40 transition-colors">
+              <div className="p-4 md:p-6 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 text-center hover:border-[rgb(201_168_76)]/40 transition-colors">
                 <div className="text-3xl font-serif text-[rgb(201_168_76)] mb-2">∞</div>
                 <p className="text-xs uppercase tracking-widest text-gray-500">Possibilidades</p>
               </div>

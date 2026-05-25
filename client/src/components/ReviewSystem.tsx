@@ -117,7 +117,7 @@ export function ReviewSystem() {
   };
 
   return (
-    <section id="reviews" className="py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
+    <section id="reviews" className="py-8 md:py-20 pb-20 md:pb-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">

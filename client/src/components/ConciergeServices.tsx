@@ -59,7 +59,7 @@ export function ConciergeServices() {
   ];
 
   return (
-    <section id="concierge" className="py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
+    <section id="concierge" className="py-8 md:py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 fade-in-up">
@@ -75,7 +75,7 @@ export function ConciergeServices() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="p-8 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all group"
+              className="p-4 md:p-8 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all group"
             >
               {/* Icon */}
               <div className="w-16 h-16 rounded-full bg-gradient-to-br from-[rgb(201_168_76)]/20 to-[rgb(154_122_46)]/20 flex items-center justify-center mb-6 group-hover:from-[rgb(201_168_76)]/30 group-hover:to-[rgb(154_122_46)]/30 transition-all">
@@ -100,7 +100,7 @@ export function ConciergeServices() {
         </div>
 
         {/* Why Choose Us */}
-        <div className="p-12 rounded bg-gradient-to-r from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20">
+        <div className="p-6 md:p-12 rounded bg-gradient-to-r from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20">
           <h3 className="text-2xl font-serif text-white mb-8 text-center">Por Que Escolher Nosso Concierge?</h3>
           <div className="grid md:grid-cols-3 gap-8">
             {[

@@ -49,7 +49,7 @@ export function ReservationSteps() {
   ];
 
   return (
-    <section id="steps" className="py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
+    <section id="steps" className="py-8 md:py-20 px-4 bg-black border-t border-[rgb(201_168_76)]/20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 fade-in-up">
@@ -65,7 +65,7 @@ export function ReservationSteps() {
           {steps.map((item, index) => (
             <div
               key={index}
-              className="relative p-8 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all"
+              className="relative p-4 md:p-8 rounded bg-[rgb(22_22_22)] border border-[rgb(201_168_76)]/20 hover:border-[rgb(201_168_76)]/40 transition-all"
             >
               {/* Step Number */}
               <div className="absolute -top-4 -left-4 w-12 h-12 rounded-full bg-gradient-to-r from-[rgb(201_168_76)] to-[rgb(154_122_46)] flex items-center justify-center">
@@ -102,7 +102,7 @@ export function ReservationSteps() {
         </div>
 
         {/* CTA Section */}
-        <div className="p-12 rounded bg-gradient-to-r from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20 text-center">
+        <div className="p-6 md:p-12 rounded bg-gradient-to-r from-[rgb(201_168_76)]/10 to-[rgb(154_122_46)]/10 border border-[rgb(201_168_76)]/20 text-center">
           <h3 className="text-2xl font-serif text-white mb-4">Pronto para Começar?</h3>
           <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
             Entre em contato conosco hoje mesmo para discutir sua experiência personalizada e garantir seu lugar nesta oportunidade exclusiva.

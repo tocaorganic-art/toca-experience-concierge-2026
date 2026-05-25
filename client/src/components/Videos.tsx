@@ -57,7 +57,7 @@ export function Videos() {
   };
 
   return (
-    <section id="videos" className="py-20 px-4 bg-black">
+    <section id="videos" className="py-8 md:py-20 px-4 bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-12 fade-in-up">

@@ -84,7 +84,7 @@ export function PreBookingForm() {
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <section id="prebooking" className="py-20 px-4 bg-gradient-to-b from-black to-[rgb(22_22_22)] border-t border-[rgb(201_168_76)]/20">
+    <section id="prebooking" className="py-8 md:py-20 px-4 bg-gradient-to-b from-black to-[rgb(22_22_22)] border-t border-[rgb(201_168_76)]/20">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
