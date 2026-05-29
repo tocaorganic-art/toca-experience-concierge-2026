@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { publicProcedure, router } from '../_core/trpc';
+import { adminProcedure, publicProcedure, router } from '../_core/trpc';
 import {
   createPreBooking,
   getPreBookings,
@@ -106,7 +106,7 @@ export const supabaseRouter = router({
     }),
 
     // Moderation (used by the admin dashboard)
-    getPending: publicProcedure.query(async () => {
+    getPending: adminProcedure.query(async () => {
       try {
         const reviews = await getPendingReviews();
         return reviews;
@@ -116,7 +116,7 @@ export const supabaseRouter = router({
       }
     }),
 
-    updateStatus: publicProcedure
+    updateStatus: adminProcedure
       .input(
         z.object({
           id: z.string().min(1, 'ID é obrigatório'),

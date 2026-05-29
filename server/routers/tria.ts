@@ -1,3 +1,4 @@
+import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 import { publicProcedure, router } from "../_core/trpc";
 import { invokeLLM, type Message } from "../_core/llm";
@@ -82,15 +83,20 @@ export const triaRouter = router({
         const reply = extractText(result.choices?.[0]?.message?.content).trim();
 
         if (!reply) {
-          throw new Error("Resposta vazia do modelo");
+          throw new TRPCError({
+            code: "INTERNAL_SERVER_ERROR",
+            message: "A Toca TrIA está indisponível no momento. Tente novamente em instantes.",
+          });
         }
 
         return { reply };
       } catch (error) {
+        if (error instanceof TRPCError) throw error;
         console.error("[Toca TrIA] chat error:", error);
-        throw new Error(
-          "A Toca TrIA está indisponível no momento. Tente novamente em instantes."
-        );
+        throw new TRPCError({
+          code: "INTERNAL_SERVER_ERROR",
+          message: "A Toca TrIA está indisponível no momento. Tente novamente em instantes.",
+        });
       }
     }),
 });

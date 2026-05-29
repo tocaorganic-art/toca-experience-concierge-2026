@@ -176,13 +176,14 @@ export async function updateReviewStatus(
     const client = getSupabaseClient();
     if (!client) throw new Error('Supabase client not initialized');
 
-    const { error } = await client
+    const { error, count } = await client
       .from('reviews')
       .update({ status })
-      .eq('id', id);
+      .eq('id', id)
+      .select('id', { count: 'exact', head: true });
 
-    if (error) {
-      console.error('[Supabase] Error updating review status:', error);
+    if (error || count === 0) {
+      console.error('[Supabase] Error updating review status:', error ?? 'Row not found');
       return false;
     }
 
