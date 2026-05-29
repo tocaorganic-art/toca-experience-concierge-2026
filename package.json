@@ -1,4 +1,4 @@
-﻿{
+{
     "name":  "toca_experience_proposal",
     "version":  "1.0.0",
     "type":  "module",
@@ -114,5 +114,8 @@
                  "overrides":  {
                                    "tailwindcss\u003enanoid":  "3.3.7"
                                }
-             }
+             },
+    "engines":  {
+                    "node":  "\u003e=20.0.0"
+                }
 }
