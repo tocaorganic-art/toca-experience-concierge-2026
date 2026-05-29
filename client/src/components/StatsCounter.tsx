@@ -52,9 +52,11 @@ export function StatsCounter() {
           const newRecord = payload.new as { tipo?: string; valor?: number } | null;
           if (!newRecord?.tipo || typeof newRecord.valor !== "number") return;
 
+          const tipo = newRecord.tipo;
+          const valor = newRecord.valor;
           setCounterValues(current => ({
             ...current,
-            [newRecord.tipo]: newRecord.valor,
+            [tipo]: valor,
           }));
         }
       )

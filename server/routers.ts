@@ -3,6 +3,7 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { notificationsRouter } from "./routers/notifications";
 import { supabaseRouter } from "./routers/supabase";
+import { triaRouter } from "./routers/tria";
 import { publicProcedure, router } from "./_core/trpc";
 
 export const appRouter = router({
@@ -10,6 +11,7 @@ export const appRouter = router({
   system: systemRouter,
   notifications: notificationsRouter,
   supabase: supabaseRouter,
+  tria: triaRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {

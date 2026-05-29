@@ -145,6 +145,55 @@ export async function getApprovedReviews(): Promise<Review[]> {
   }
 }
 
+export async function getPendingReviews(): Promise<Review[]> {
+  try {
+    const client = getSupabaseClient();
+    if (!client) throw new Error('Supabase client not initialized');
+
+    const { data, error } = await client
+      .from('reviews')
+      .select('*')
+      .eq('status', 'pendente')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('[Supabase] Error fetching pending reviews:', error);
+      return [];
+    }
+
+    return (data || []) as Review[];
+  } catch (error) {
+    console.error('[Supabase] Exception fetching pending reviews:', error);
+    return [];
+  }
+}
+
+export async function updateReviewStatus(
+  id: string,
+  status: 'aprovado' | 'rejeitado'
+): Promise<boolean> {
+  try {
+    const client = getSupabaseClient();
+    if (!client) throw new Error('Supabase client not initialized');
+
+    const { error, count } = await client
+      .from('reviews')
+      .update({ status })
+      .eq('id', id)
+      .select('id', { count: 'exact', head: true });
+
+    if (error || count === 0) {
+      console.error('[Supabase] Error updating review status:', error ?? 'Row not found');
+      return false;
+    }
+
+    return true;
+  } catch (error) {
+    console.error('[Supabase] Exception updating review status:', error);
+    return false;
+  }
+}
+
 export async function getReviewStats(): Promise<{
   average: number;
   total: number;

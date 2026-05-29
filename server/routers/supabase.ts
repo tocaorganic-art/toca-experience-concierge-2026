@@ -1,10 +1,12 @@
 import { z } from 'zod';
-import { publicProcedure, router } from '../_core/trpc';
+import { adminProcedure, publicProcedure, router } from '../_core/trpc';
 import {
   createPreBooking,
   getPreBookings,
   createReview,
   getApprovedReviews,
+  getPendingReviews,
+  updateReviewStatus,
   getReviewStats,
   getCounters,
   updateCounter,
@@ -102,6 +104,34 @@ export const supabaseRouter = router({
         return { average: 0, total: 0 };
       }
     }),
+
+    // Moderation (used by the admin dashboard)
+    getPending: adminProcedure.query(async () => {
+      try {
+        const reviews = await getPendingReviews();
+        return reviews;
+      } catch (error) {
+        console.error('Error fetching pending reviews:', error);
+        return [];
+      }
+    }),
+
+    updateStatus: adminProcedure
+      .input(
+        z.object({
+          id: z.string().min(1, 'ID é obrigatório'),
+          status: z.enum(['aprovado', 'rejeitado']),
+        })
+      )
+      .mutation(async ({ input }) => {
+        try {
+          const success = await updateReviewStatus(input.id, input.status);
+          return { success };
+        } catch (error) {
+          console.error('Error updating review status:', error);
+          return { success: false };
+        }
+      }),
   }),
 
   // Counters
