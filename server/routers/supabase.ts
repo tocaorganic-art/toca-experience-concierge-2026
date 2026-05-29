@@ -5,6 +5,8 @@ import {
   getPreBookings,
   createReview,
   getApprovedReviews,
+  getPendingReviews,
+  updateReviewStatus,
   getReviewStats,
   getCounters,
   updateCounter,
@@ -102,6 +104,34 @@ export const supabaseRouter = router({
         return { average: 0, total: 0 };
       }
     }),
+
+    // Moderation (used by the admin dashboard)
+    getPending: publicProcedure.query(async () => {
+      try {
+        const reviews = await getPendingReviews();
+        return reviews;
+      } catch (error) {
+        console.error('Error fetching pending reviews:', error);
+        return [];
+      }
+    }),
+
+    updateStatus: publicProcedure
+      .input(
+        z.object({
+          id: z.string().min(1, 'ID é obrigatório'),
+          status: z.enum(['aprovado', 'rejeitado']),
+        })
+      )
+      .mutation(async ({ input }) => {
+        try {
+          const success = await updateReviewStatus(input.id, input.status);
+          return { success };
+        } catch (error) {
+          console.error('Error updating review status:', error);
+          return { success: false };
+        }
+      }),
   }),
 
   // Counters
