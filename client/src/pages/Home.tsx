@@ -10,6 +10,8 @@ import { Footer } from "@/components/Footer";
 import { Gallery } from "@/components/Gallery";
 import { ReviewSystem } from "@/components/ReviewSystem";
 import { Investment } from "@/components/Investment";
+import { StatsCounter } from "@/components/StatsCounter";
+import { PreBookingForm } from "@/components/PreBookingForm";
 
 export default function Home() {
   return (
@@ -19,6 +21,9 @@ export default function Home() {
       <main>
         {/* Section 1: Hero */}
         <Hero />
+
+        {/* Live client counter (animated, Supabase-backed) */}
+        <StatsCounter />
 
         {/* Section 2: Personas */}
         <Personas />
@@ -45,7 +50,10 @@ export default function Home() {
         {/* Section 9: How it works */}
         <Workflow />
 
-        {/* Section 10: Final CTA & Contact */}
+        {/* Section 10: Pre-booking form (Supabase-backed) */}
+        <PreBookingForm />
+
+        {/* Section 11: Final CTA & Contact */}
         <Footer />
       </main>
     </div>

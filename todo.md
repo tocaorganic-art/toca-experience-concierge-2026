@@ -223,7 +223,7 @@
 - [x] Adicionar loading state real
 - [x] Implementar error handling
 - [x] Persistir idioma selecionado
-- [ ] Montar o componente em uma seção da página (Home.tsx ainda não renderiza PreBookingForm)
+- [x] Montar o componente em uma seção da página (PreBookingForm renderizado em Home.tsx antes do Footer)
 
 ### 13.6 - Atualizar ReviewSystem
 - [x] Remover simulação com setTimeout
@@ -237,7 +237,7 @@
 - [x] Usar trpc.supabase.counters.get.useQuery()
 - [x] Implementar Intersection Observer para animação
 - [x] Adicionar fallback para offline
-- [ ] Integrar na seção Hero (StatsCounter.tsx ainda não é renderizado em Home.tsx)
+- [x] Integrar na seção Hero (StatsCounter renderizado em Home.tsx logo após o Hero)
 
 ### 13.8 - Testes Vitest para Supabase
 - [x] Criar testes para createPreBooking (server/supabase-db.test.ts)
