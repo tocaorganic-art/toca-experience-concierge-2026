@@ -190,65 +190,72 @@
 ## Fase 13: Integração Supabase para Persistência Real
 
 ### 13.1 - Configuração de Variáveis de Ambiente
-- [ ] Solicitar ao usuário SUPABASE_URL e SUPABASE_ANON_KEY
-- [ ] Adicionar via webdev_request_secrets
-- [ ] Documentar em .env.example (sem commitar .env)
-- [ ] Testar conexão com Supabase
+- [ ] Solicitar ao usuário SUPABASE_URL e SUPABASE_ANON_KEY (requer credenciais reais)
+- [ ] Adicionar via webdev_request_secrets (requer ambiente/usuário)
+- [x] Documentar em .env.example (sem commitar .env)
+- [ ] Testar conexão com Supabase (helper testSupabaseConnection() pronto; requer credenciais reais)
 
 ### 13.2 - Schema e Tabelas no Banco de Dados
-- [ ] Criar tabela pre_bookings (id, nome, email, telefone, check_in, check_out, adultos, criancas, mensagem, idioma, created_at)
-- [ ] Criar tabela reviews (id, nome, estrelas, comentario, mes_estadia, idioma, status, created_at)
-- [ ] Criar tabela site_counters (id, tipo, valor, updated_at)
-- [ ] Inserir valores iniciais em site_counters
-- [ ] Configurar RLS policies para leitura pública
+- [x] Criar tabela pre_bookings (id, nome, email, telefone, check_in, check_out, adultos, criancas, mensagem, idioma, created_at) — SQL em supabase_schema.sql
+- [x] Criar tabela reviews (id, nome, estrelas, comentario, mes_estadia, idioma, status, created_at) — SQL em supabase_schema.sql
+- [x] Criar tabela site_counters (id, tipo, valor, updated_at) — SQL em supabase_schema.sql
+- [x] Inserir valores iniciais em site_counters — SQL em supabase_schema.sql
+- [x] Configurar RLS policies para leitura pública — SQL em supabase_schema.sql
 
 ### 13.3 - Helpers de Supabase no Servidor
-- [ ] Criar client Supabase em server/_core/supabase.ts
-- [ ] Implementar createPreBooking() em server/db.ts
-- [ ] Implementar createReview() em server/db.ts
-- [ ] Implementar getCounters() em server/db.ts
-- [ ] Implementar updateCounter() em server/db.ts
-- [ ] Implementar getApprovedReviews() em server/db.ts
+- [x] Criar client Supabase em server/_core/supabase.ts
+- [x] Implementar createPreBooking() (server/supabase-db.ts)
+- [x] Implementar createReview() (server/supabase-db.ts)
+- [x] Implementar getCounters() (server/supabase-db.ts)
+- [x] Implementar updateCounter() (server/supabase-db.ts)
+- [x] Implementar getApprovedReviews() (server/supabase-db.ts)
 
 ### 13.4 - Procedimentos tRPC para Supabase
-- [ ] Criar trpc.prebooking.create
-- [ ] Criar trpc.reviews.submit
-- [ ] Criar trpc.reviews.getApproved
-- [ ] Criar trpc.counters.get
-- [ ] Adicionar validação e tratamento de erros
+- [x] Criar trpc.supabase.prebooking.create
+- [x] Criar trpc.supabase.reviews.submit
+- [x] Criar trpc.supabase.reviews.getApproved
+- [x] Criar trpc.supabase.counters.get
+- [x] Adicionar validação e tratamento de erros
 
 ### 13.5 - Atualizar PreBookingForm
-- [ ] Remover simulação com setTimeout
-- [ ] Usar trpc.prebooking.create.useMutation()
-- [ ] Adicionar loading state real
-- [ ] Implementar error handling
-- [ ] Persistir idioma selecionado
+- [x] Remover simulação com setTimeout
+- [x] Usar trpc.supabase.prebooking.create.useMutation()
+- [x] Adicionar loading state real
+- [x] Implementar error handling
+- [x] Persistir idioma selecionado
+- [ ] Montar o componente em uma seção da página (Home.tsx ainda não renderiza PreBookingForm)
 
 ### 13.6 - Atualizar ReviewSystem
-- [ ] Remover simulação com setTimeout
-- [ ] Usar trpc.reviews.submit.useMutation()
-- [ ] Usar trpc.reviews.getApproved.useQuery()
-- [ ] Implementar carrossel com dados reais
-- [ ] Calcular média de estrelas dinamicamente
+- [x] Remover simulação com setTimeout
+- [x] Usar trpc.supabase.reviews.submit.useMutation()
+- [x] Usar trpc.supabase.reviews.getApproved.useQuery()
+- [x] Implementar carrossel com dados reais
+- [x] Calcular média de estrelas dinamicamente
 
 ### 13.7 - Implementar LiveClientCounter
-- [ ] Criar componente LiveClientCounter.tsx
-- [ ] Usar trpc.counters.get.useQuery()
-- [ ] Implementar Intersection Observer para animação
-- [ ] Adicionar fallback para offline
-- [ ] Integrar na seção Hero
+- [x] Criar componente (StatsCounter.tsx) com count-up
+- [x] Usar trpc.supabase.counters.get.useQuery()
+- [x] Implementar Intersection Observer para animação
+- [x] Adicionar fallback para offline
+- [ ] Integrar na seção Hero (StatsCounter.tsx ainda não é renderizado em Home.tsx)
 
 ### 13.8 - Testes Vitest para Supabase
-- [ ] Criar testes para createPreBooking
-- [ ] Criar testes para createReview
-- [ ] Criar testes para getCounters
-- [ ] Criar testes para validação de dados
-- [ ] Testar tratamento de erros
+- [x] Criar testes para createPreBooking (server/supabase-db.test.ts)
+- [x] Criar testes para createReview (server/supabase-db.test.ts)
+- [x] Criar testes para getCounters (server/supabase-db.test.ts)
+- [x] Criar testes para validação de dados (server/routers/supabase.test.ts)
+- [x] Testar tratamento de erros (ambos os arquivos)
 
 ### 13.9 - Build e Validação Final
-- [ ] Executar pnpm build
-- [ ] Verificar se não há erros de compilação
-- [ ] Testar fluxo completo de pré-reserva
-- [ ] Testar fluxo completo de avaliações
-- [ ] Testar contador em tempo real
-- [ ] Criar checkpoint final
+- [x] Executar pnpm build (sucesso)
+- [x] Verificar se não há erros de compilação (corrigido erro TS em StatsCounter.tsx; `pnpm check` limpo)
+- [ ] Testar fluxo completo de pré-reserva (requer Supabase ao vivo)
+- [ ] Testar fluxo completo de avaliações (requer Supabase ao vivo)
+- [ ] Testar contador em tempo real (requer Supabase ao vivo)
+- [x] Criar checkpoint final (35 testes passando, build verde)
+
+> Nota de arquitetura: o `vite build` compila o `index.html` estático da raiz
+> (página única ~1MB), e NÃO o app React em `client/` (`client/index.html` →
+> `client/src/main.tsx`). Logo, os componentes React de Supabase (ReviewSystem,
+> PreBookingForm, StatsCounter) não fazem parte do bundle de produção atual.
+> Resolver isso exige decidir a estratégia de deploy — fora do escopo da Fase 13.

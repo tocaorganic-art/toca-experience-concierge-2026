@@ -50,11 +50,13 @@ export function StatsCounter() {
         { event: "*", schema: "public", table: "site_counters" },
         payload => {
           const newRecord = payload.new as { tipo?: string; valor?: number } | null;
-          if (!newRecord?.tipo || typeof newRecord.valor !== "number") return;
+          const tipo = newRecord?.tipo;
+          const valor = newRecord?.valor;
+          if (!tipo || typeof valor !== "number") return;
 
           setCounterValues(current => ({
             ...current,
-            [newRecord.tipo]: newRecord.valor,
+            [tipo]: valor,
           }));
         }
       )
