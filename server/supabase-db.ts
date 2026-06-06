@@ -1,4 +1,5 @@
-// @ts-nocheck
+// @ts-nocheck -- the Supabase client is untyped (no generated Database types), so
+// inserts/updates resolve to `never`; runtime behavior is covered by supabase-db.test.ts.
 import { getSupabaseClient } from './_core/supabase';
 
 // Types
