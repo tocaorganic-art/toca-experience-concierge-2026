@@ -21,7 +21,7 @@ import { trpc } from "@/lib/trpc";
 import { CalendarCheck, Check, Loader2, Star, Users, X } from "lucide-react";
 import { toast } from "sonner";
 
-function formatDate(value?: string) {
+function formatDate(value?: string | null) {
   if (!value) return "—";
   const d = new Date(value);
   return isNaN(d.getTime()) ? value : d.toLocaleDateString("pt-BR");
@@ -55,10 +55,11 @@ function StatCard({
   );
 }
 
-function Overview() {
+type BookingsQuery = { data: { id: string; nome: string; email: string; telefone?: string | null; check_in?: string | null; check_out?: string | null; adultos: number; criancas?: number | null; created_at?: string | null }[] | undefined; isLoading: boolean };
+
+function Overview({ bookings }: { bookings: BookingsQuery }) {
   const counters = trpc.supabase.counters.get.useQuery();
   const reviewStats = trpc.supabase.reviews.getStats.useQuery();
-  const bookings = trpc.supabase.prebooking.list.useQuery();
 
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -90,8 +91,8 @@ function Overview() {
   );
 }
 
-function BookingsTab() {
-  const { data, isLoading } = trpc.supabase.prebooking.list.useQuery();
+function BookingsTab({ bookings }: { bookings: BookingsQuery }) {
+  const { data, isLoading } = bookings;
 
   if (isLoading) {
     return (
@@ -241,6 +242,8 @@ function ReviewsTab() {
 }
 
 export default function Dashboard() {
+  const bookings = trpc.supabase.prebooking.list.useQuery();
+
   return (
     <DashboardLayout>
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-6">
@@ -253,7 +256,7 @@ export default function Dashboard() {
           </p>
         </div>
 
-        <Overview />
+        <Overview bookings={bookings} />
 
         <Tabs defaultValue="bookings">
           <TabsList>
@@ -261,7 +264,7 @@ export default function Dashboard() {
             <TabsTrigger value="reviews">Avaliações</TabsTrigger>
           </TabsList>
           <TabsContent value="bookings" className="mt-4">
-            <BookingsTab />
+            <BookingsTab bookings={bookings} />
           </TabsContent>
           <TabsContent value="reviews" className="mt-4">
             <ReviewsTab />
